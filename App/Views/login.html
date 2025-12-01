@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Accedi - Cloud Storage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/assets/css/login.css">
+    </head>
+    <body>
+        <div class="login-container">
+            <h1 class="login-title">Accedi</h1>
+            <h2>{{ METHOD }}</h2>
+            <form method="post" action="/login" id="login-form">
+                <div class="login-field">
+                    <label class="login-label" for="username">Username o email</label>
+                    <input type="text" id="username" name="username" class="login-input" required value="{{ USERNAME }}">
+                </div>
+
+                <div class="login-field">
+                    <label class="login-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="login-input" required>
+                </div>
+
+                <button type="submit" class="login-button">Entra</button>
+            </form>
+
+            <div class="login-footer">
+                Non hai un account?
+                <a href="/register">Registrati</a>
+            </div>
+        </div>
+
+        <!-- JS esterno per eventuale logica lato client (es. validazione semplice) -->
+        <script src="/assets/js/login.js"></script>
+    </body>
+</html>
