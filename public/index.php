@@ -10,8 +10,6 @@ define('MODELS_PATH', APP_PATH . '/Models');
 define('VIEWS_PATH', APP_PATH . '/Views');
 define('CONTROLLERS_PATH', APP_PATH . '/Controllers');
 
-define('DB_HOST', 'HOST');
-
 define('ENV_FILE', BASE_PATH . '/.env');
 define('CONFIG', parse_ini_file(ENV_FILE));
 
