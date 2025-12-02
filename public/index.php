@@ -33,8 +33,9 @@ use App\Controllers\LoginController;
 
 $router = new Router(BASE_PATH);
 
-$router->route('', HomeController::class, 'index');
-$router->route('login', LoginController::class, 'loginForm');
+$router->route('GET', '', HomeController::class, 'index');
+$router->route('GET', 'login', LoginController::class, 'loginForm');
+$router->route('POST', 'login', LoginController::class, 'login');
 
 
 echo $router->resolve($_SERVER['REQUEST_URI']);

@@ -14,8 +14,11 @@ class Router {
     }
     
     
-    public function route(string $path, string $controller, string $action) {
-        $this->routes[$path] = [$controller, $action];
+    public function route(string $method, string $path, string $controller, string $action) {
+        if(!isset($this->routes[$method]))
+            $this->routes[$method] = [];
+
+        $this->routes[$method][$path] = [$controller, $action];
     }
 
 
@@ -33,9 +36,11 @@ class Router {
         $path = preg_replace('/^index(\.php)?$|\?[A-z0-9\-=&,%]+$/', '', $path);
         
 
+        $method = $_SERVER["REQUEST_METHOD"];
+
         // Controllo sulle route
-        if (isset($this->routes[$path])) {
-            [$controller, $method] = $this->routes[$path];
+        if (isset($this->routes[$method]) && isset($this->routes[$method][$path])) {
+            [$controller, $method] = $this->routes[$method][$path];
 
             if (method_exists($controller, $method)) {
                 return (new $controller)->$method();

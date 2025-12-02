@@ -7,21 +7,20 @@ use App\Models\MySQL;
 
 class LoginController extends BaseController {
     public function loginForm() {
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $mysql = new MySQL($this->db_conn);
-            
-            if(!$mysql->connect())
-                echo 'Not connected.<br>';
+        return $this->renderView('login');
+    }
 
-            if(!$mysql->execute('SELECT * FROM users'))
-                echo 'Query failed.<br>';
+    public function login() {
+        $mysql = new MySQL($this->db_conn);
+        
+        if(!$mysql->connect())
+            echo 'Not connected.<br>';
 
-            echo json_encode($mysql->fetch());
+        if(!$mysql->execute('SELECT * FROM users'))
+            echo 'Query failed.<br>';
 
-            $mysql->close();
-        }
+        echo json_encode($mysql->fetch());
 
-
-        return $this->renderView('login', ['METHOD' => $_SERVER['REQUEST_METHOD']]);
+        $mysql->close();
     }
 };
