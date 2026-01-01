@@ -31,4 +31,14 @@ class BaseController {
 
         return $this->processor->render($name, array_merge($this->baseViewParams, $params));
     }
+
+    public static function httpResponse(array $payload, int $code = 200): string {
+        http_response_code($code);
+        return json_encode($payload);
+    }
+
+    protected function checkSession() {
+        $id = $_SESSION["session_id"] ?? '';
+        return isset($_SESSION["session_id"]) && $id == session_id();
+    }
 }

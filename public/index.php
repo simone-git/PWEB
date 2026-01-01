@@ -22,6 +22,7 @@ require_once SRC_PATH . '/Router.php';
 require_once SRC_PATH . '/Session.php';
 
 require_once LIB_PATH . '/Processor.php';
+require_once LIB_PATH . '/Utils.php';
 
 require_once APP_PATH . '/Controllers/BaseController.php';
 require_once APP_PATH . '/Controllers/HomeController.php';
@@ -35,11 +36,14 @@ use App\Controllers\AuthController;
 
 $router = new Router(BASE_PATH);
 
+// TODO: method list, like 'GET,POST,...'
 $router->route('GET', '', HomeController::class, 'index');
-$router->route('GET', 'login', AuthController::class, 'loginForm');
-$router->route('POST', 'login', AuthController::class, 'login');
 $router->route('GET', 'register', AuthController::class, 'registerForm');
 $router->route('POST', 'register', AuthController::class, 'register');
+$router->route('GET', 'login', AuthController::class, 'loginForm');
+$router->route('POST', 'login', AuthController::class, 'login');
+$router->route('GET', 'logout', AuthController::class, 'logout');
+$router->route('GET', 'session', HomeController::class, 'session');
 
 
 echo $router->resolve($_SERVER['REQUEST_URI']);

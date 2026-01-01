@@ -13,7 +13,7 @@
 
             <form method="post" action="/login" id="login-form">
                 <div class="login-field">
-                    <label class="login-label" for="username">Username o email</label>
+                    <label class="login-label" for="username">Username</label>
                     <input type="text" id="username" name="username" class="login-input" required value="{{ USERNAME }}">
                 </div>
 
@@ -31,7 +31,6 @@
             </div>
         </div>
 
-        <!-- JS esterno per eventuale logica lato client (es. validazione semplice) -->
-        <script src="/assets/js/login.js"></script>
+        <script type="module" src="/assets/js/login.js"></script>
     </body>
 </html>
