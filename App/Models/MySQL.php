@@ -39,7 +39,7 @@ class MySQL {
             $this->stmt = $this->connection->prepare($query);
             
             if(!empty($types) && !empty($params))
-                $this->stmt->bind_param($types, $params);
+                $this->stmt->bind_param($types, ...$params);
 
             return $this->stmt->execute();
         } catch(Error) {  // Closed connection
