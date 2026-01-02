@@ -5,7 +5,7 @@ define('BASE_PATH', dirname(__DIR__));
 define('SRC_PATH', BASE_PATH . '/src');
 define('LIB_PATH', SRC_PATH . '/lib');
 
-define('APP_PATH', BASE_PATH . '/app');
+define('APP_PATH', BASE_PATH . '/App');
 define('MODELS_PATH', APP_PATH . '/Models');
 define('VIEWS_PATH', APP_PATH . '/Views');
 define('CONTROLLERS_PATH', APP_PATH . '/Controllers');
