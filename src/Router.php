@@ -57,7 +57,7 @@ class Router {
         } catch(Exception $e) {
             echo BaseController::httpResponse(["error" => $e->getMessage()], $e->getCode());
         } catch(Error $e) {
-
+            echo BaseController::httpResponse(["error" => $e->getMessage()], $e->getCode());
         }
     }
 }

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(data.redirect !== undefined)
                 document.location.href = data.redirect;
         }).catch(error => {
-            alert(error);
+            alert(error.message);
         });
     });
 });
